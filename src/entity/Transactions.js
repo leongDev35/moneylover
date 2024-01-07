@@ -8,25 +8,15 @@ export const TransactionEntity = new EntitySchema({
             primary: true,
             generated: true,
         },
-        transaction_name: {
-            type: String,
-        },
-        total: {
-            type: Number,
-        },
+       
         transaction_date: {
-            type: 'timestamp',
+            type: Date,
         },
         amount: {
             type: Number,
         },
         note: {
             type: String,
-        },
-        transaction_type: {
-            type: 'enum',
-            enum: ['income', 'expense'],
-            default: 'expense', // Giá trị mặc định nếu không được xác định là:  Chi phí
         }
 
     },
@@ -46,6 +36,7 @@ export const TransactionEntity = new EntitySchema({
         categoryChild: {
             type: "many-to-one",
             target: "categoryChild", // CategoryEntity
+            nullable: true
         }
     }
 })

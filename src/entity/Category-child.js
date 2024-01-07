@@ -14,11 +14,7 @@ export const CategoryChildEntity = new EntitySchema({
         category_child_icon: {
             type: String,
         },
-        category_child_type: {
-            type: 'enum',
-            enum: ['income', 'expense', 'loan'],
-            default: 'expense', // Giá trị mặc định nếu không được xác định là:  Chi phí
-        },
+       
     },
     relations: {
         category: {

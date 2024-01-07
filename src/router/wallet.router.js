@@ -1,11 +1,13 @@
 import express from "express";
-import { createWallet, getWWallet, getWWalletDetail } from "../controller/wallet.controller.js";
+import { changeTotalWallet, checkWalletName, createWallet, getWallet, getWWalletDetail } from "../controller/wallet.controller.js";
 
 const walletRouter = express.Router();
 
 //! CRUD
 walletRouter.post('', createWallet)
-walletRouter.get('', getWWallet)
+walletRouter.post('/check', checkWalletName)
+walletRouter.get('', getWallet)
 walletRouter.get('/:walletId', getWWalletDetail)
+walletRouter.put('/:walletId', changeTotalWallet)
 
 export default walletRouter;

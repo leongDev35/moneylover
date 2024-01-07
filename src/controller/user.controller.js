@@ -24,7 +24,6 @@ export async function createUser(req, res) {
                 email: req.body.email,
             },
         });
-
         if (userCheck.length != 0) {
             return res.json({
                 message: `User ${req.body.username} exists already`
@@ -66,6 +65,7 @@ export async function createUser(req, res) {
                 //! tạo ví mặc định
                 let walletDefault = {
                     wallet_name: 'Tiền mặt',
+                    wallet_icon: 'https://static.moneylover.me/img/icon/ic_category_all.png',
                     total: 0,
                     user: userSaved.user_id //! sử dụng id user để mapping
                 }
@@ -275,3 +275,9 @@ export async function sentNewPassword(req, res) {
         return res.json({ message: 'Có lỗi xảy ra' });
     }
 }
+
+
+//! lọc giao dịch
+
+//! theo category
+//! theo ngày tháng or quý cụ thể
